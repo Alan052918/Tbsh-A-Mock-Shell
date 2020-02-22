@@ -1,8 +1,8 @@
-# CS302 Mock Shell
+# Tbsh: A Mock Shell
 
 SUSTech CSE 11711310 Junda AI
 
-- [CS302 Mock Shell](#cs302-mock-shell)
+- [Tbsh: A Mock Shell](#tbsh-a-mock-shell)
   - [Overview](#overview)
   - [Development Environment](#development-environment)
   - [Usage](#usage)
