@@ -6,8 +6,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#define MAX_ALIAS_NUM 100
-#define MAX_PATH_LEN 1000
+// #define MAX_ALIAS_NUM 100
 #define MAX_LINE_LEN 1000
 #define MAX_HISTORY_SZ 1000000
 
