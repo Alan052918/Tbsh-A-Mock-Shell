@@ -6,16 +6,16 @@ SUSTech CSE 11711310 Junda AI
   - [Overview](#overview)
   - [Development Environment](#development-environment)
   - [Usage](#usage)
-  - [Configuration and Customization (TO BE IMPLEMENTED)](#configuration-and-customization-to-be-implemented)
-    - [~~Prompt Information~~](#sprompt-informations)
-    - [~~Alias~~](#saliass)
+  - [Configuration and Customization](#configuration-and-customization)
+    - [Prompt Information](#prompt-information)
+    - [~~Alias~~ (TO BE IMPLEMENTED)](#saliass-to-be-implemented)
   - [Troubleshooting](#troubleshooting)
     - [Fixed](#fixed)
     - [Unfixed](#unfixed)
 
 ## Overview
 
-This is a mock Unix shell application written in C. ~~Users can specify customized configurations in a file named `.tbshrc`, create one if it doesn't exist.~~ All input commands will be logged in a file name `.tbsh_history`, the program will alert on startup when the size of `.tbsh_history` exceeds 1 MB.
+This is a mock Unix shell application written in C. Users can specify customized configurations in a file named `.tbshrc`, create one if it doesn't exist. All input commands will be logged in a file name `.tbsh_history`, the program will alert on startup when the size of `.tbsh_history` exceeds 1 MB.
 
 ## Development Environment
 
@@ -26,40 +26,31 @@ This is a mock Unix shell application written in C. ~~Users can specify customiz
   - Apple clang version 11.0.0 (clang-1100.0.33.16)
   - Target: x86_64-apple-darwin19.3.0
   - Thread mode: posix
-- Visual Studio Code Version: 1.42.1
 
 ## Usage
 
-This application supports several UNIX shell commands
+This application is not compatible with the Windows operating system.
 
-- `man`: format and display the on-line manual page
-- `ls`: list directory contents
-- `cd`: change directory
-- `pwd`: print working directory
-- `date`: display or set date and time
-- `cal`, `ncal`: display a calender and the date of Easter
-- `echo`: write arguments to standard output
-- `cat`: concatenate and print files
-- `touch`: change file access and modification times
-- `mkdir`: make directories
-- `du`: display disk usage statistics
+It calls `execvp()` declared in `unistd.h` to carry out specific Unix commands. `unistd.h` is a header file that provides access to the POSIX operating system API.
 
 Enter `exit` or `Ctrl+D` to exit program. The program can also be stopped by `Ctrl+C`.
 
-## Configuration and Customization (TO BE IMPLEMENTED)
+**Warning**: caution [unfixed issues](#unfixed).
 
-~~This application will load configuration file on start up if any. The name of the configuration file should be `.tbshrc`.~~
+## Configuration and Customization
 
-### ~~Prompt Information~~
+This application will load configuration file on start up if any. The name of the configuration file should be `.tbshrc`.
 
-~~This application supports displaying either only current folder name or complete working directory name (default) in the prompt message.~~
+### Prompt Information
 
-~~`set fulldir={cwd_display: 0/1}`~~
+This application supports displaying either only current folder name or complete working directory name (default) in the prompt message.
 
-- ~~`0`: display only current folder name~~
-- ~~`1`: display the complete working directory name~~
+`fulldir={cwd_display: 0/1}`
 
-### ~~Alias~~
+- `0`: display only current folder name
+- `1`: display the complete working directory name (default)
+
+### ~~Alias~~ (TO BE IMPLEMENTED)
 
 ~~This application supports customized alias for automating complicated commands. Be cautious not to duplicate alias names with existing commands.~~
 
@@ -76,3 +67,4 @@ Enter `exit` or `Ctrl+D` to exit program. The program can also be stopped by `Ct
 
 - Abnormal exit when directory name contains spaces in `cd`
 - Abnormal exit due to memory allocation failure
+- When this application is running a child process, pressing `Ctrl+C` will cause the application to exit rather than stopping the running child process and returning to the application cli
