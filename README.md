@@ -62,9 +62,9 @@ This application supports displaying either only current folder name or complete
 
 - Infinite loop when `Ctrl+D` is pressed
 - Abnormal exit when `Enter` is pressed
+- Abnormal exit due to memory allocation failure
 
 ### Unfixed
 
 - Abnormal exit when directory name contains spaces in `cd`
-- Abnormal exit due to memory allocation failure
 - When this application is running a child process, pressing `Ctrl+C` will cause the application to exit rather than stopping the running child process and returning to the application cli
