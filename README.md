@@ -44,7 +44,7 @@ This application supports several UNIX shell commands
 - `mkdir`: make directories
 - `du`: display disk usage statistics
 
-Enter `exist` to exit program. The program can also be stopped by `Ctrl+C` or `Ctrl+D`.
+Enter `exit` or `Ctrl+D` to exit program. The program can also be stopped by `Ctrl+C`.
 
 ## Configuration and Customization (TO BE IMPLEMENTED)
 
@@ -75,3 +75,4 @@ Enter `exist` to exit program. The program can also be stopped by `Ctrl+C` or `C
 ### Unfixed
 
 - Abnormal exit when directory name contains spaces in `cd`
+- Abnormal exit due to memory allocation failure
