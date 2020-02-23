@@ -15,7 +15,7 @@ SUSTech CSE 11711310 Junda AI
 
 ## Overview
 
-This is a mock Unix shell application written in C. Users can specify customized configurations in a file named `.tbshrc`, create one if it doesn't exist. All input commands will be logged in a file name `.tbsh_history`, the program will alert on startup when the size of `.tbsh_history` exceeds 1 MB.
+This is a mock Unix shell application written in C. Users can specify customized configurations in a file named `.tbshrc`, create one if it doesn't exist. All input commands will be logged in a file name `.tbsh_history`, the program will alert on startup when the size of `.tbsh_history` exceeds 2 KB.
 
 ## Development Environment
 

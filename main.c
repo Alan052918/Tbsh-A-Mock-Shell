@@ -8,7 +8,7 @@
 
 // #define MAX_ALIAS_NUM 100
 #define MAX_LINE_LEN 1000
-#define MAX_HISTORY_SZ 1000000
+#define MAX_HISTORY_SZ 2000
 #define FULL_DIR 1
 #define CUR_FLDR 0
 
