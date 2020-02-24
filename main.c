@@ -117,7 +117,7 @@ void REPL(int prompt_dir, int ac, Alias *alias) {
     // Check for aliases
     for (int i = 0; i < ac; ++i) {
       if (!strcmp(line, alias[i].key)) {
-        printf("FOUND ALIAS: %s", alias[i].val);
+        // printf("FOUND ALIAS: %s", alias[i].val);
         strcpy(line, alias[i].val);
       }
     }
