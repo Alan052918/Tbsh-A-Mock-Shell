@@ -1,5 +1,6 @@
 // Example configuration file
 fulldir=1
 
-alias roar = "echo Hala Madrid!"
-alias l = "ls -la"
+// Loose alias syntax formatting
+alias roar="echo Hala Madrid!"
+alias l   = "ls -la"

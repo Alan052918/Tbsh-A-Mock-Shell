@@ -59,9 +59,9 @@ int main() {
         prompt_dir = atoi(strpbrk(cline, "10"));
       } else if (!strncmp(cline, "alias", 5)) {  // Alias settings
         cline += 6;
-        tmp = strtok(cline, "\"");
-        cval = strtok(NULL, "\"");
-        ckey = strtok(tmp, " =");
+        tmp = strtok(cline, "\"");  // chars before the first quote
+        cval = strtok(NULL, "\"");  // chars inside the quotes
+        ckey = strtok(tmp, " =");   // chars before "="/" ="
         alias[ac].key = (char *)malloc(sizeof(char) * (strlen(ckey) + 1));
         alias[ac].val = (char *)malloc(sizeof(char) * (strlen(cval) + 1));
         strncpy(alias[ac].key, ckey, strlen(ckey));
@@ -87,6 +87,12 @@ int main() {
 
   // 3. Run a Read-Evaluate-Print loop
   REPL(prompt_dir, ac, alias);
+
+  // 4. Shutdown cleanup
+  for (int i = 0; i < ac; ++i) {
+    free(alias[i].key);
+    free(alias[i].val);
+  }
 }
 
 void REPL(int prompt_dir, int ac, Alias *alias) {
