@@ -28,15 +28,7 @@ This is a mock Unix shell application written in C. Users can specify customized
 
 ## Usage
 
-This application is not compatible with the Windows operating system.
-
-It calls `execvp()` declared in `unistd.h` to carry out specific Unix commands. `unistd.h` is a header file that provides access to the POSIX operating system API.
-
-`CS302_Mock_Shell` is an executable file created with `Makefile`, run it by `./CS302_Mock_Shell` under the project folder in your own shell. You can also build your own executables.
-
-After entering the program, use it and type commands like in other shells and you should be alright.
-
-Enter `exit` or press `Ctrl+D` to exit program. The program can also be stopped by `Ctrl+C`.
+This application is not compatible with the Windows operating system. It calls `execvp()` declared in `unistd.h` to carry out specific Unix commands. `unistd.h` is a header file that provides access to the POSIX operating system API. `CS302_Mock_Shell` is an executable file created with `Makefile`, run it by `./CS302_Mock_Shell` under the project folder in your own shell. You can also build your own executables. After entering the program, use it and type commands like in other shells and you should be alright. Enter `exit` or press `Ctrl+D` to exit program. The program can also be stopped by `Ctrl+C`.
 
 **Warning**: caution [unfixed issues](#unfixed).
 
