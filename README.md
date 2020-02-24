@@ -20,7 +20,6 @@ This is a mock Unix shell application written in C. Users can specify customized
 ## Development Environment
 
 - Operating system: macOS 10.15.3
-- Processor: 2.3 GHz Dual-Core Intel Core i5
 - Programming Language: C
 - C compiler: clang
   - Apple clang version 11.0.0 (clang-1100.0.33.16)
