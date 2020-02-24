@@ -36,7 +36,7 @@ It calls `execvp()` declared in `unistd.h` to carry out specific Unix commands. 
 
 After entering the program, use it and type commands like in other shells and you should be alright.
 
-Enter `exit` or `Ctrl+D` to exit program. The program can also be stopped by `Ctrl+C`.
+Enter `exit` or press `Ctrl+D` to exit program. The program can also be stopped by `Ctrl+C`.
 
 **Warning**: caution [unfixed issues](#unfixed).
 
