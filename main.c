@@ -6,17 +6,24 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-// #define MAX_ALIAS_NUM 100
+#define MAX_ALIAS_NUM 100
 #define MAX_LINE_LEN 1000
 #define MAX_HISTORY_SZ 2000
 #define FULL_DIR 1
 #define CUR_FLDR 0
 
-// typedef struct Alias {
-//   char *key, *val;
-// } Alias;
+typedef struct Alias {
+  char *key, *val;
+} Alias;
 
-void REPL(int);
+Alias CreateAlias(char *akey, char *aval) {
+  Alias *alias = (Alias *)malloc(sizeof(Alias));
+  alias->key = akey;
+  alias->val = aval;
+  return *alias;
+}
+
+void REPL(int, int, Alias *);
 
 void PrintPrompt(int);
 
@@ -29,7 +36,11 @@ int ExecuteCommand(char **);
 int main() {
   // 1. Load configuration
   int prompt_dir = FULL_DIR;
-  // struct Alias alias[MAX_ALIAS_NUM];
+  struct Alias alias[MAX_ALIAS_NUM];
+  for (int i = 0; i < MAX_ALIAS_NUM; ++i) {
+    alias[i] = CreateAlias(NULL, NULL);
+  }
+  int ac = 0;
   FILE *config = fopen(".tbshrc", "r");
   if (!config) {
     printf(
@@ -37,6 +48,9 @@ int main() {
         "continue");
     getchar();
   } else {
+    char *tmp = NULL;
+    char *ckey = NULL;
+    char *cval = NULL;
     char *cline = (char *)malloc(sizeof(char) * MAX_LINE_LEN);
     while (fgets(cline, MAX_LINE_LEN, config)) {
       if (!strncmp(cline, "//", 2)) {  // Ignore comments
@@ -44,7 +58,17 @@ int main() {
       } else if (!strncmp(cline, "fulldir", 7)) {  // Directory prompt settings
         prompt_dir = atoi(strpbrk(cline, "10"));
       } else if (!strncmp(cline, "alias", 5)) {  // Alias settings
-        // TODO: implement alias support
+        cline += 6;
+        tmp = strtok(cline, "\"");
+        cval = strtok(NULL, "\"");
+        ckey = strtok(tmp, " =");
+        alias[ac].key = (char *)malloc(sizeof(char) * (strlen(ckey) + 1));
+        alias[ac].val = (char *)malloc(sizeof(char) * (strlen(cval) + 1));
+        strncpy(alias[ac].key, ckey, strlen(ckey));
+        alias[ac].key[strlen(ckey)] = '\n';
+        strncpy(alias[ac].val, cval, strlen(cval));
+        alias[ac].val[strlen(cval)] = '\n';
+        ++ac;
       }
     }
   }
@@ -55,17 +79,17 @@ int main() {
   if (history) {
     fseek(history, 0, SEEK_END);
     if (ftell(history) > MAX_HISTORY_SZ) {
-      printf("History size exceeds 1 MB, consider clean up .tbsh_history\n");
+      printf("History size exceeds 2 KB, consider clean up .tbsh_history\n");
     }
     rewind(history);
   }
   fclose(history);
 
   // 3. Run a Read-Evaluate-Print loop
-  REPL(prompt_dir);
+  REPL(prompt_dir, ac, alias);
 }
 
-void REPL(int prompt_dir) {
+void REPL(int prompt_dir, int ac, Alias *alias) {
   char *line = NULL;
   char *line_p = NULL;
   char *tok_p = NULL;
@@ -88,6 +112,14 @@ void REPL(int prompt_dir) {
       continue;
     } else {
       Log(line);
+    }
+
+    // Check for aliases
+    for (int i = 0; i < ac; ++i) {
+      if (!strcmp(line, alias[i].key)) {
+        printf("FOUND ALIAS: %s", alias[i].val);
+        strcpy(line, alias[i].val);
+      }
     }
 
     // 3. Parse line into tokens
