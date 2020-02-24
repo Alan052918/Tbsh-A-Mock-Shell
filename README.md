@@ -32,7 +32,7 @@ This application is not compatible with the Windows operating system.
 
 It calls `execvp()` declared in `unistd.h` to carry out specific Unix commands. `unistd.h` is a header file that provides access to the POSIX operating system API.
 
-Enter `exit` or `Ctrl+D` to exit program. The program can also be stopped by `Ctrl+C`.
+Enter `exit` or press `Ctrl+D` to exit program. The program can also be stopped by `Ctrl+C`.
 
 **Warning**: caution [unfixed issues](#unfixed).
 
