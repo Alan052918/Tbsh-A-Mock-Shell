@@ -15,7 +15,7 @@ SUSTech CSE 11711310 Junda AI
 
 ## Overview
 
-This is a mock Unix shell application written in C. Users can specify customized configurations in a file named `.tbshrc`, create one if it doesn't exist. All input commands will be logged in a file name `.tbsh_history`, the program will alert on startup when the size of `.tbsh_history` exceeds 2 KB.
+This is a mock Unix shell application written in C. Users can specify customized configurations in a file named `.tbshrc`, create one if it doesn't exist. All input commands will be logged in a file named `.tbsh_history`, the program will alert on startup when the size of `.tbsh_history` exceeds 2 KB.
 
 ## Development Environment
 
@@ -28,13 +28,13 @@ This is a mock Unix shell application written in C. Users can specify customized
 
 ## Usage
 
-This application is not compatible with the Windows operating system. It calls `execvp()` declared in `unistd.h` to carry out specific Unix commands. `unistd.h` is a header file that provides access to the POSIX operating system API. `CS302_Mock_Shell` is an executable file created with `Makefile`, run it by `./CS302_Mock_Shell` under the project folder in your own shell. You can also build your own executables. After entering the program, use it and type commands like in other shells and you should be alright. Enter `exit` or press `Ctrl+D` to exit program. The program can also be stopped by `Ctrl+C`.
+This application is not compatible with the Windows operating system. It calls `execvp()` declared in `unistd.h` to carry out specific Unix commands. `unistd.h` is a header file that provides access to the POSIX operating system API which is not available in Windows. `CS302_Mock_Shell` is an executable file created with `Makefile`, run it by `./CS302_Mock_Shell` under the project folder in your own shell. You can also build your own executables. After entering the program, use it and type commands like in other shells and you should be alright. Enter `exit` or press `Ctrl+D` to exit program. The program can also be stopped by `Ctrl+C`.
 
 **Warning**: caution [unfixed issues](#unfixed).
 
 ## Configuration and Customization
 
-This application will load configuration file on start up if any. The name of the configuration file should be `.tbshrc`.
+The application will load configurationsin `.tbshrc` on start up if any.
 
 ### Prompt Information
 
