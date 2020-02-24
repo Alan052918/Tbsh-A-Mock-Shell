@@ -50,7 +50,7 @@ This application supports displaying either only current folder name or complete
 - `0`: display only current folder name
 - `1`: display the complete working directory name (default)
 
-### Alias (TO BE IMPLEMENTED)
+### Alias
 
 This application supports customized alias for automating complicated commands. Be cautious not to duplicate alias names with existing commands.
 
