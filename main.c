@@ -37,9 +37,7 @@ int main() {
   // 1. Load configuration
   int prompt_dir = FULL_DIR;
   struct Alias alias[MAX_ALIAS_NUM];
-  for (int i = 0; i < MAX_ALIAS_NUM; ++i) {
-    alias[i] = CreateAlias(NULL, NULL);
-  }
+  for (int i = 0; i < MAX_ALIAS_NUM; ++i) alias[i] = CreateAlias(NULL, NULL);
   int ac = 0;
   FILE *config = fopen(".tbshrc", "r");
   if (!config) {
@@ -122,10 +120,7 @@ void REPL(int prompt_dir, int ac, Alias *alias) {
 
     // Check for aliases
     for (int i = 0; i < ac; ++i) {
-      if (!strcmp(line, alias[i].key)) {
-        // printf("FOUND ALIAS: %s", alias[i].val);
-        strcpy(line, alias[i].val);
-      }
+      if (!strcmp(line, alias[i].key)) strcpy(line, alias[i].val);
     }
 
     // 3. Parse line into tokens
@@ -187,9 +182,7 @@ void PrintPrompt(int prompt_dir) {
   }
 
   char *slh_p = strrchr(cwd, '/');
-  if (prompt_dir == CUR_FLDR && slh_p) {
-    cwd = slh_p + 1;
-  }
+  if (prompt_dir == CUR_FLDR && slh_p) cwd = slh_p + 1;
   printf("\n%s@%s\ntbsh >", pwuser->pw_name, cwd);
 }
 

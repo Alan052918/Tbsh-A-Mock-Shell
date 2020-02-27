@@ -1,8 +1,6 @@
-CS302_Mock_Shell: main.o
-	g++ -o CS302_Mock_Shell main.o
-
-main.o: main.c
+CS302_Mock_Shell: main.c
+	gc -o CS302_Mock_Shell main.c
 
 .PHONY: clean
 clean:
-	rm CS302_Mock_Shell *.o
+	rm CS302_Mock_Shell
