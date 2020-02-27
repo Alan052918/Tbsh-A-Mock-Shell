@@ -34,7 +34,7 @@ This application is not compatible with the Windows operating system. It calls `
 
 ## Configuration and Customization
 
-The application will load configurationsin `.tbshrc` on start up if any.
+The application will load configurations in `.tbshrc` on start up if any.
 
 ### Prompt Information
 
