@@ -1,6 +1,6 @@
-CS302_Mock_Shell: main.c
-	gcc -o CS302_Mock_Shell main.c
+tbsh: tbsh.c
+	clang -o tbsh tbsh.c
 
 .PHONY: clean
 clean:
-	rm CS302_Mock_Shell
+	rm tbsh

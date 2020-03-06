@@ -28,6 +28,3 @@
 # Executables
 *.out
 *.app
-
-# Project Specific
-.tbsh_history
