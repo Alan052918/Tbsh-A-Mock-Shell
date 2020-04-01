@@ -1,6 +1,6 @@
-tbsh: tbsh.c
-	clang -o tbsh tbsh.c
+tbsh.out: tbsh.c
+	gcc -o tbsh.out tbsh.c
 
 .PHONY: clean
 clean:
-	rm tbsh
+	rm tbsh.out
